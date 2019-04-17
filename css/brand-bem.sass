@@ -1,0 +1,1100 @@
+@charset "utf-8"
+
+@mixin flexbox
+  display: -webkit-box
+  display: -moz-box
+  display: -webkit-flex
+  display: -ms-flexbox
+  display: flex
+
+@mixin flex-direction($value: row)
+  @if $value == row-reverse
+    -webkit-box-direction: reverse
+    -webkit-box-orient: horizontal
+    -moz-box-direction: reverse
+    -moz-box-orient: horizontal
+  @else if $value == column
+    -webkit-box-direction: normal
+    -webkit-box-orient: vertical
+    -moz-box-direction: normal
+    -moz-box-orient: vertical
+  @else if $value == column-reverse
+    -webkit-box-direction: reverse
+    -webkit-box-orient: vertical
+    -moz-box-direction: reverse
+    -moz-box-orient: vertical
+  @else
+    -webkit-box-direction: normal
+    -webkit-box-orient: horizontal
+    -moz-box-direction: normal
+    -moz-box-orient: horizontal
+  -webkit-flex-direction: $value
+  -ms-flex-direction: $value
+  flex-direction: $value
+
+@mixin justify-content($value: flex-start)
+  @if $value == flex-start
+    -webkit-box-pack: start
+    -moz-box-pack: start
+    -ms-flex-pack: start
+  @else if $value == flex-end
+    -webkit-box-pack: end
+    -moz-box-pack: end
+    -ms-flex-pack: end
+  @else if $value == space-between
+    -webkit-box-pack: justify
+    -moz-box-pack: justify
+    -ms-flex-pack: justify
+  @else
+    -webkit-box-pack: $value
+    -moz-box-pack: $value
+    -ms-flex-pack: $value
+  -webkit-justify-content: $value
+  justify-content: $value
+
+@mixin align-content($value: stretch)
+  -webkit-align-content: $value
+  @if $value == flex-start
+    -ms-flex-line-pack: start
+  @else if $value == flex-end
+    -ms-flex-line-pack: end
+  @else
+    -ms-flex-line-pack: $value
+  align-content: $value
+
+@mixin align-items($value: stretch)
+  @if $value == flex-start
+    -webkit-box-align: start
+    -moz-box-align: start
+    -ms-flex-align: start
+  @else if $value == flex-end
+    -webkit-box-align: end
+    -moz-box-align: end
+    -ms-flex-align: end
+  @else
+    -webkit-box-align: $value
+    -moz-box-align: $value
+    -ms-flex-align: $value
+  -webkit-align-items: $value
+  align-items: $value
+
+@mixin flex-wrap($value: nowrap)
+  -webkit-flex-wrap: $value
+  @if $value == nowrap
+    -ms-flex-wrap: none
+  @else
+    -ms-flex-wrap: $value
+  flex-wrap: $value
+
+@mixin flex-grow($int: 1)
+  -webkit-box-flex: $int
+  -moz-box-flex: $int
+  -webkit-flex-grow: $int
+  -ms-flex: $int
+  flex-grow: $int
+
+@mixin flex-shrink($int: 0)
+  -webkit-flex-shrink: $int
+  -moz-flex-shrink: $int
+  -ms-flex: $int
+  flex-shrink: $int
+
+@mixin flex-basis($value: auto)
+  -webkit-flex-basis: $value
+  flex-basis: $value
+
+@mixin flex($fg: 1, $fs: 0, $fb: auto)
+  $fg-boxflex: $fg
+  @if type-of($fg) == 'list'
+    $fg-boxflex: nth($fg, 1)
+  -webkit-box: $fg-boxflex
+  -moz-box: $fg-boxflex
+  -webkit-flex: $fg $fs $fb
+  -ms-flex: $fg $fs $fb
+  flex: $fg $fs $fb
+
+@mixin flex-flow($values: (row nowrap))
+  -webkit-flex-flow: $values
+  -ms-flex-flow: $values
+  flex-flow: $values
+
+@mixin awesome-free
+  font-family: "Font Awesome 5 Free"
+  font-weight: 900
+
+@mixin awesome-brands
+  font-family: "Font Awesome 5 Brands"
+  font-weight: 400
+
+$primary-text: #222222
+$color-pink: #f16d7f
+
+.color-pink
+  color: $color-pink
+
+.arrow-right::after
+  @include awesome-free
+  content: "\f30b"
+  margin-left: 8px
+
+.caret-down::after
+  @include awesome-free
+  content: "\f0d7"
+
+.dollar::before
+  content: "\0024"
+
+html
+  height: 100%
+
+body
+  min-height: 100%
+  font-family: 'Lato', sans-serif
+  font-size: 14px
+  font-weight: 400
+  color: $primary-text
+  @include flexbox
+  @include flex-direction(column)
+  @include justify-content(space-between)
+
+.header
+  height: 100px
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.17)
+  border: 1px solid #ececec
+  background-color: #ffffff
+  @include flexbox
+  @include align-items(center)
+
+.container
+  width: 1140px
+
+.header__container
+  margin: 0 auto
+  @include flexbox
+  @include justify-content(space-between)
+  @include align-items(center)
+
+.header__panel-left,
+.header__panel-right
+  position: relative
+
+.header__panel-left
+  @include flexbox
+  @include justify-content(flex-start)
+  @include align-items(center)
+
+.header__panel-right
+  @include flexbox
+  @include justify-content(flex-end)
+  @include align-items(flex-end)
+
+.logo
+  text-decoration: none
+  @include flexbox
+  @include align-items(center)
+
+.logo__img
+  margin-right: 13px
+
+.logo__title
+  font-weight: 300
+  font-size: 27px
+  color: $primary-text
+
+.logo__title_mark
+  font-weight: 400
+  @extend .color-pink
+
+.search-form
+  display: block
+  margin: 0
+
+.header__search-form
+  margin-left: 37px
+
+.btn
+  border: none
+  cursor: pointer
+  outline: none
+  text-align: center
+
+.search-form__btn
+  height: 38px
+  border: 1px solid #e6e6e6
+
+.search-form__btn-drop
+  padding-left: 15px
+  padding-right: 8px
+  border-radius: 3px 0 0 3px
+  background-image: linear-gradient(to bottom, #f9f9f9 0%, #f5f5f5 100%)
+  font-weight: 300
+  position: relative
+  &:hover > .sub-menu
+    visibility: visible
+    opacity: 1
+
+.search-form__btn-drop-caret:after
+  margin-left: 8px
+
+.search-form__btn-submit
+  padding-right: 11px
+  padding-left: 11px
+  background-color: #ffffff
+  border-radius: 0 3px 3px 0
+  color: #a4a4a4
+
+.search-form__sub-menu
+  top: 38px
+  left: 0
+
+.sub-menu
+  @include flexbox
+  visibility: hidden
+  opacity: 0
+  position: absolute
+  border: 1px solid #e8e8e8
+  border-radius: 5px
+  background-color: #fff
+  box-shadow: 1px 1px 3px #ddd
+  z-index: 100
+  text-align: left
+  transition: .3s
+
+.sub-menu__arrow
+  display: block
+  top: -5px
+  width: 8px
+  height: 8px
+  background: #fff
+  transform: rotate(45deg)
+  position: absolute
+  border-left: 1px solid #e8e8e8
+  border-top: 1px solid #e8e8e8
+
+.sub-menu__arrow_search-form
+  left: 70px
+
+.sub-menu__col
+  @include flexbox
+  @include flex-direction(column)
+  @include justify-content(space-between)
+  width: 255px
+  padding-top: 8px
+  margin-right: 26px
+  &:last-of-type
+    margin-right: 20px
+
+.sub-menu__h3
+  border-bottom: 1px solid #e8e8e8
+  color: $primary-text
+  text-transform: uppercase
+  margin: 0 0 0 20px
+  padding-top: 10px
+  padding-bottom: 6px
+
+.sub-menu__ul
+  margin: 0 0 20px 20px
+  padding: 0
+  list-style-type: none
+
+.sub-menu__li
+  margin-top: 14px
+
+.sub-menu__link
+  text-decoration: none
+  color: #646464
+  &:hover
+    @extend .color-pink
+
+.input
+  box-sizing: border-box
+
+.input__search
+  width: 280px
+  height: 38px
+  margin-left: -4px
+  margin-right: -4px
+  border: 1px solid #e6e6e6
+  padding-left: 16px
+  padding-right: 16px
+  outline: none
+  &::placeholder
+    color: #a4a4a4
+    font-weight: 300
+
+.cart
+  position: relative
+
+.cart__link
+  text-decoration: none
+
+.cart__drop:hover > .sub-menu
+  visibility: visible
+  opacity: 1
+
+.header__panel-right-cart
+  margin-right: 26px
+
+.cart__filled
+  @include flexbox
+  @include justify-content(center)
+  @include align-items(center)
+  width: 19px
+  height: 19px
+  position: absolute
+  border-radius: 9px
+  font-size: 12px
+  font-weight: 700
+  color: #ffffff
+  background-color: $color-pink
+
+.cart__filled_pos
+  top: -6px
+  right: -8px
+
+.btn__primary
+  color: #fff
+  background-color: $color-pink
+  border: 1px solid transparent
+  transition: all .3s
+  &:hover
+    color: $color-pink
+    background-color: #fff
+    border: 1px solid $color-pink
+
+.btn__secondary
+  color: #4a4a4a
+  background-color: #fff
+  border: 1px solid #eaeaea
+  transition: all .3s
+  &:hover
+    color: $color-pink
+    border: 1px solid $color-pink
+
+.btn__primary_my-account
+  height: 38px
+  font-size: 15px
+  padding-left: 19px
+  padding-right: 12px
+  border-radius: 3px
+
+.btn__primary_my-account-caret:after
+  margin-left: 8px
+
+.cart__sub-menu
+  top: 42px
+  left: -14px
+
+.sub-menu__arrow_cart
+  left: 35px
+
+.sub-menu__cart-col
+  padding: 0 16px 15px
+  @include flexbox
+  @include flex-direction(column)
+  @include justify-content(space-between)
+  @include flex(1, 1, 0%)
+
+.sub-menu__cart-ul
+  margin: 0
+
+.sub-menu__cart-li
+  @include flexbox
+  padding: 16px 0
+  border-bottom: 1px solid #e8e8e8
+
+.sub-menu__cart-descbox
+  margin: 0 14px
+  line-height: 21px
+
+.sub-menu__cart-title
+  display: inline-block
+  margin: 3px 0
+  color: $primary-text
+  font-size: 12px
+  font-weight: 700
+  text-transform: uppercase
+  text-decoration: none
+  &:hover
+    color: $color-pink
+
+.sub-menu__cart-quantity
+  color: $color-pink
+  margin: 0
+
+.sub-menu__cart-cancel
+  color: #c0c0c0
+  font-size: 16px
+  line-height: 85px
+  text-decoration: none
+  &::after
+    @include awesome-free
+    content: "\f057"
+
+.sub-menu__cart-total
+  @include flexbox
+  @include justify-content(space-between)
+  padding-top: 18px
+  padding-bottom: 23px
+  font-size: 16px
+  font-weight: 700
+  text-transform: uppercase
+
+.btn__cart
+  display: block
+  width: 225px
+  height: 50px
+  margin: 5px 0
+  line-height: 50px
+  text-decoration: none
+  font-weight: 700
+  text-transform: uppercase
+
+.navigation
+  background-color: #fff
+
+.navigation__container
+  margin: 0 auto
+
+.top-menu
+  @include flexbox
+  @include justify-content(center)
+  @include align-items(center)
+  margin: 0
+  padding: 0
+  list-style-type: none
+
+.top-menu__item
+  position: relative
+  &:hover > .sub-menu
+    visibility: visible
+    opacity: 1
+
+.top-menu__link
+  display: block
+  padding: 17px 22px
+  text-decoration: none
+  color: $primary-text
+  font-weight: 700
+  text-transform: uppercase
+  &:hover
+    color: $color-pink
+
+.top-menu__sub-menu_left,
+.top-menu__sub-menu_right
+  top: 45px
+
+.top-menu__sub-menu_left
+  left: -40px
+
+.top-menu__sub-menu_right
+  right: -40px
+
+.top-menu__sub-menu_arrow-left
+  left: 60px
+
+.top-menu__sub-menu_arrow-right
+  right: 60px
+
+.sub-menu__banner
+  display: block
+  position: relative
+  margin-top: 5px
+  margin-bottom: 20px
+
+.sub-menu__banner-text
+  position: absolute
+  color: #fff
+  font-size: 22px
+  text-transform: uppercase
+  right: 10px
+  bottom: 12px
+
+.promo
+  background-color: #e8e8e8
+  margin-bottom: 100px
+
+.promo__container
+  @include flexbox
+  @include justify-content(flex-start)
+  @include align-items(center)
+  margin: 0 auto
+
+.promo__bg
+  height: 613px
+  background: url("../img/promo.jpg") 37px -51px no-repeat
+
+.promo__text
+  font-size: 40px
+  font-weight: 900
+  border-left: 12px solid $color-pink
+  padding-left: 12px
+  letter-spacing: 1px
+  line-height: 33px
+
+.promo__text_h3
+  font-size: 60px
+  font-weight: 900
+  letter-spacing: 1.5px
+  line-height: 41px
+  margin-top: 0
+  margin-bottom: 18px
+
+.category
+  margin-bottom: 84px
+
+.category__container
+  margin: 0 auto
+  display: grid
+  grid-template-rows: repeat(3, 261px)
+  grid-template-columns: repeat(2, 560px)
+  grid-gap: 20px
+
+.banner
+  display: block
+  position: relative
+  text-decoration: none
+  color: #222222
+  overflow: hidden
+
+.banner__for-men
+  grid-row: 1 / 3
+  grid-column: 1
+  background: url("../img/banner_formen.jpg")
+
+.banner__accesories
+  grid-row: 3 / 4
+  grid-column: 1 / 2
+  background: url("../img/banner_accesories.jpg") top right no-repeat #dadad2
+
+.banner__women
+  grid-row: 1 / 2
+  grid-column: 2
+  background: url("../img/banner_women.jpg")
+
+.banner__for-kids
+  grid-row: 2 / 4
+  grid-column: 2
+  background: url("../img/banner_forkids.jpg")
+
+.badge
+  position: absolute
+  top: 26px
+  left: 0
+  background-color: #ffffff
+  padding: 16px 18px
+  text-transform: uppercase
+  font-size: 18px
+  font-weight: 900
+  letter-spacing: 0.45px
+  line-height: 18px
+
+.badge__h3
+  margin-top: 16px
+  margin-bottom: 0
+  font-size: 30px
+  font-weight: 900
+  letter-spacing: 0.75px
+
+.products
+  margin-bottom: 90px
+
+.products__container
+  margin: 0 auto
+
+.products__header,
+.products__footer
+  text-align: center
+
+.products__header
+  margin-bottom: 20px
+
+.products__footer
+  margin-top: 40px
+
+.products__h3
+  margin-top: 16px
+  margin-bottom: 16px
+  font-size: 30px
+  font-weight: 700
+
+.products__h5
+  margin-top: 14px
+  margin-bottom: 0
+  font-size: 14px
+  font-weight: 400
+  color: #9f9f9f
+
+.btn__product
+  display: inline-block
+  font-size: 16px
+  font-weight: 700
+  padding: 18px 19px 18px 24px
+  text-decoration: none
+
+.products__catalog
+  display: grid
+  grid-template-rows: repeat(2, 1fr)
+  grid-template-columns: repeat(4, 1fr)
+  grid-row-gap: 40px
+
+.product
+  width: 263px
+  height: 364px
+  position: relative
+  margin: 20px 0
+  &:hover
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.16)
+    .product__add,
+    .product__retweet,
+    .product__like
+      @include flexbox
+      @include justify-content(center)
+      @include align-items(center)
+      &:hover
+        background: rgba(255,255,255,0.15)
+        box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.5)
+    .product__img
+      filter: brightness(0.5)
+      transition: filter 0.1s linear
+
+.product__add
+  display: none
+  position: absolute
+  top: 97px
+  left: 70px
+  width: 123px
+  height: 39px
+  padding: 0 10px
+  box-sizing: border-box
+  border: 1px solid #fff
+  border-radius: 3px
+  font-size: 13px
+  font-weight: 700
+  color: #fff
+  text-decoration: none
+  z-index: 100
+
+.product__img
+  display: block
+  width: 263px
+  height: 280px
+  transition: filter 0.2s linear
+
+.product__desc
+  text-align: left
+  padding: 19px 15px
+  text-transform: uppercase
+  &:hover .product__rating
+    display: block
+    width: 70px
+    height: 14px
+
+.product__desc-link
+  text-decoration: none
+  color: #222222
+  &:hover
+    color: #ef5b70
+
+.product__desc-h3
+  margin-top: 0
+  font-size: 13px
+  font-weight: 400
+
+.product__desc-row
+  @include flexbox
+  @include justify-content(space-between)
+
+.product__rating
+  display: none
+
+.breadcrumbs-section
+  @include flexbox
+  @include align-items(center)
+  height: 148px
+  background-color: #f8f3f4
+
+.breadcrumbs-section__container
+  margin: 0 auto
+  @include flexbox
+  @include justify-content(space-between)
+
+.breadcrumbs-section__h3
+  font-size: 24px
+  text-transform: uppercase
+  color: $color-pink
+
+.breadcrumbs
+  @include flexbox
+  @include align-items(center)
+  margin: 0
+  padding: 0
+  list-style-type: none
+  text-transform: uppercase
+  font-weight: 700
+
+.breadcrumbs__item
+  color: $primary-text
+
+.breadcrumbs__link
+  color: $primary-text
+  text-decoration: none
+  &:hover
+    color: $color-pink
+
+.breadcrumbs__current
+  color: $color-pink
+
+.shopping-cart__container
+  margin: 85px auto 75px
+
+.product-table
+  width: 100%
+  color: #656565
+  font-size: 13px
+  font-weight: 400
+  border-collapse: collapse
+  border: 0
+
+.shopping-cart__table
+  margin-bottom: 44px
+
+.product-table__title
+  color: $primary-text
+  font-weight: 700
+  @extend .product-table__text_uppercase
+
+.product-table__title,
+.product-table__cell
+  padding-top: 20px
+  padding-bottom: 20px
+  vertical-align: center
+  text-align: center
+
+.product-table__row_border
+  border-bottom: 1px solid #eaeaea
+
+.product-table__column-wide
+  width: 41.67%
+  text-align: left
+
+.product-table__column-normal
+  width: 16.67%
+
+.product-table__column-narrow
+  width: 8.33%
+
+.product-table__text_uppercase
+  text-transform: uppercase
+
+.product-table__product-img
+  float: left
+  margin-right: 21px
+
+.product-table__h3
+  @extend .product-table__text_uppercase
+  margin-top: 13px
+  margin-bottom: 30px
+  font-size: 13px
+  font-weight: 400
+  color: $primary-text
+
+.product-table__product-link
+  text-decoration: none
+  color: $primary-text
+  &:hover
+    color: $color-pink
+
+.product-table__product-desc
+  margin-top: 14px
+  margin-bottom: 14px
+  line-height: 22px
+
+.product-table__product-desc_highlight
+  font-weight: 300
+  color: #6f6e6e
+
+.product-table__input-quantity
+  width: 54px
+  box-sizing: border-box
+  border: 1px solid #eaeaea
+  padding: 10px 1px 10px 20px
+  font-size: 13px
+  font-weight: 400
+  color: $primary-text
+
+.shopping-cart__buttons
+  @include flexbox
+  @include justify-content(space-between)
+
+.shopping-cart__misc
+  margin-top: 60px
+  @include flexbox
+  @include justify-content(space-between)
+
+.shopping-cart__section
+  width: 33%
+
+.btn__shopping-cart_big
+  color: #4a4a4a
+  font-size: 14px
+  font-weight: 700
+  text-transform: uppercase
+  padding: 19px 39px
+
+.shopping-cart__misc-h3
+  margin-top: 10px
+  margin-bottom: 10px
+  color: $primary-text
+  font-size: 16px
+  font-weight: 700
+  text-transform: uppercase
+
+.shopping-cart__datalist
+  @extend .shopping-cart__input-text
+  padding-right: 10px !important
+
+.shopping-cart__input-text
+  width: 355px
+  height: 45px
+  box-sizing: border-box
+  border: 1px solid #eaeaea
+  background-color: #fff
+  color: #b1b1b1
+  font-size: 13px
+  font-weight: 300
+  margin: 10px 0
+  padding: 17px
+  line-height: 1em
+  &::placeholder
+    color: #b1b1b1
+    font-size: 13px
+    font-weight: 300
+
+.shopping-cart__coupon-hint
+  line-height: 2em
+
+.btn__shopping-cart_small
+  font-size: 11px
+  font-weight: 700
+  text-transform: uppercase
+  padding: 12px 17px
+
+.btn__shopping-cart_coupon
+  margin-top: 15px
+
+.shopping-cart__misc_checkout
+  background-color: #f5f3f3
+  padding: 0 43px
+  box-sizing: border-box
+
+.shopping-cart__total
+  border-bottom: 1px solid #e2e2e2
+  text-align: right
+  padding-bottom: 15px
+
+.shopping-cart__misc-h4
+  color: #4a4a4a
+  font-size: 11px
+  font-weight: 400
+  text-transform: uppercase
+
+.shopping-cart__sub-total
+  margin-top: 40px
+  margin-bottom: 14px
+
+.shopping-cart__total-price-margin
+  margin-left: 13px
+
+.shopping-cart__total-highlight
+  @extend .color-pink
+
+.btn__shopping-cart_checkout
+  width: 100%
+  height: 50px
+  display: block
+  line-height: 50px
+  text-transform: uppercase
+  text-decoration: none
+  margin-top: 20px
+  font-size: 16px
+  font-weight: 700
+
+.subscribe
+  width: 100%
+  background: url("../img/subscribe_bg_gradient.png") no-repeat, url("../img/subscribe_bg.jpg") bottom no-repeat
+  background-size: cover
+
+.subscribe__container
+  @include flexbox
+  margin: 0 auto
+
+.subscribe__panel
+  @include flex(0, 0, 50%)
+  height: 438px
+
+.subscribe__panel-reviews
+  @include flexbox
+  @include align-items(center)
+  border-right: 1px solid #fff
+
+.subscribe__panel-form
+  @include flexbox
+  @include justify-content(center)
+  @include align-items(center)
+
+.reviews
+  @include flexbox
+
+.reviews__avatar
+  margin-right: 28px
+
+.reviews__box
+  padding-right: 70px
+
+.reviews__msg
+  font-size: 16px
+  line-height: 1.75em
+
+.reviews__msg_italic
+  font-style: italic
+
+.reviews__name
+  margin-top: 15px
+  margin-bottom: -7px
+  font-size: 16px
+  font-weight: 700
+  line-height: 1em
+  color: $color-pink
+
+.reviews__country
+  font-size: 12px
+  font-weight: 300
+  line-height: 1em
+
+.reviews__toggle
+  @include flexbox
+  margin: 40px 0 50px 0
+
+.reviews__btn
+  display: block
+  width: 38px
+  height: 4px
+  background-color: #d6d6d6
+  margin-right: 13px
+
+.reviews__btn_active
+  background-color: $color-pink
+
+.subscribe__form
+  text-align: center
+  font-weight: 600
+
+.subscribe__form-title
+  margin: 0 0 7px
+  font-size: 24px
+
+.subscribe__input
+  margin-top: 30px
+  margin-right: -4px
+  width: 282px
+  border-radius: 23px 0 0 23px
+  background-color: #e1e1e1
+  padding: 18px 28px
+  border: none
+  outline: none
+  &::placeholder
+    opacity: 0.67
+
+.btn__subscribe
+  padding: 17px 20px
+  border-radius: 0 23px 23px 0
+
+.bottom-menu
+  margin-top: 100px
+
+.bottom-menu__container
+  @include flexbox
+  margin: 0 auto
+
+.bottom-menu__panel-left
+  @include flex(1, 1, auto)
+  margin-right: 20px
+
+.bottom-menu__panel-right
+  @include flexbox
+  @include justify-content(space-between)
+  @include flex(1, 0, auto)
+
+.bottom-menu__par
+  margin-top: 30px
+  color: #898989
+  font-weight: 300
+  line-height: 2em
+
+.bottom-menu__col
+  margin: 0 40px 0 70px
+
+.bottom-menu__h3
+  font-size: 18px
+  font-weight: 700
+  margin: 14px 0 0
+  color: $color-pink
+
+.bottom-menu__ul
+  margin: 45px 0 0
+  padding: 0
+  list-style-type: none
+
+.bottom-menu__li
+  margin: 30px 0
+
+.bottom-menu__link
+  text-decoration: none
+  color: #898989
+  font-size: 16px
+  &:hover
+    color: #ef5b70
+
+.footer
+  @include flexbox
+  @include align-items(center)
+  height: 79px
+  background-color: #e6e6e6
+
+.footer__margin
+  margin-top: 60px
+
+.footer__container
+  @include flexbox
+  @include justify-content(space-between)
+  @include align-items(center)
+  margin: 0 auto
+
+.footer__copy
+  color: #7a7a7a
+  font-size: 16px
+
+.socials
+  @include flexbox
+
+.socials__btn
+  width: 32px
+  height: 32px
+  color: #b2b2b2
+  font-size: 16px
+  line-height: 32px
+  margin-left: 8px
+  text-align: center
+
+.socials__btn_enabled
+  display: block
+  background-color: #fff
+  text-decoration: none
+  transition: .3s
+  &:hover
+    color: #f7f7f8
+    background-color: $color-pink
+
+.socials__btn_disabled
+  background-color: #eee
