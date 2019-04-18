@@ -6,7 +6,6 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   <link rel="stylesheet" href="css/normalize.css">
-  <!--<link rel="stylesheet" href="css/brand-st.css">-->
   <link rel="stylesheet" href="css/brand-bem.css">
 </head>
 <body>
@@ -18,8 +17,8 @@
         <span class="logo__title">BRAN<span class="logo__title_mark">D</span></span>
       </a>
       <form action="#" class="search-form header__search-form">
-        <button type="button" class="btn search-form__btn search-form__btn-drop"><span
-          class="caret-down search-form__btn-drop-caret">Browse</span>
+        <div class="search-form__btn search-form__btn-drop">
+          <span class="caret-down search-form__btn-drop-caret">Browse</span>
           <div class="sub-menu search-form__sub-menu">
             <span class="sub-menu__arrow sub-menu__arrow_search-form"></span>
             <div class="sub-menu__col">
@@ -46,52 +45,58 @@
               </ul>
             </div>
           </div>
-        </button>
+        </div>
         <input type="text" class="input input__search" placeholder="Search for Item..." required>
         <button type="submit" class="btn search-form__btn search-form__btn-submit"><i class="fas fa-search"></i>
         </button>
       </form>
     </div>
     <div class="header__panel-right">
-      <div class="cart cart__drop header__panel-right-cart">
-        <a href="cart.html" class="cart__link"><img src="img/cart.svg" alt="cart">
-          <span class="cart__filled cart__filled_pos">2</span></a>
-        <div class="sub-menu cart__sub-menu">
-          <span class="sub-menu__arrow sub-menu__arrow_cart"></span>
-          <div class="sub-menu__cart-col">
-            <ul class="sub-menu__ul sub-menu__cart-ul">
-              <li class="sub-menu__cart-li">
+      <div class="cart cart__drop cart__pos">
+        <a href="cart.html" class="cart__link"><img src="img/cart.svg" alt="Cart">
+          <span class="cart__qty cart__qty_pos">2</span></a>
+        <div class="cart__block cart__sub-menu">
+          <span class="cart__block-arrow"></span>
+          <div class="cart__column">
+            <ul class="cart__list">
+              <li class="cart__item">
                 <a href="single.html">
                   <img src="img/product_1_72x85.png" alt="product_1"></a>
-                <div class="sub-menu__cart-descbox">
-                  <a href="single.html" class="sub-menu__cart-title">Rebox Zane</a>
+                <div class="cart__item-desc">
+                  <a href="single.html" class="cart__item-title">Rebox Zane</a>
                   <img src="img/rating_4-5.png" alt="rating_4-5_stars">
-                  <p class="sub-menu__cart-quantity">1 x <span class="dollar">250</span></p>
+                  <p class="cart__item-total">
+                    <span class="cart__item-qty">1</span> x
+                    <span class="dollar cart__item-sum">250</span>
+                  </p>
                 </div>
-                <a href="#" class="sub-menu__cart-cancel" title="удалить из корзины"></a>
+                <a href="#" class="cart__item-remove"></a>
               </li>
-              <li class="sub-menu__cart-li">
+              <li class="cart__item">
                 <a href="single.html">
                   <img src="img/product_2_72x85.png" alt="product_2"></a>
-                <div class="sub-menu__cart-descbox">
-                  <a href="single.html" class="sub-menu__cart-title">Rebox Zane</a>
+                <div class="cart__item-desc">
+                  <a href="single.html" class="cart__item-title">Rebox Zane</a>
                   <img src="img/rating_4-5.png" alt="rating_4-5_stars">
-                  <p class="sub-menu__cart-quantity">1 x <span class="dollar">250</span></p>
+                  <p class="cart__item-total">
+                    <span class="cart__item-qty">1</span> x
+                    <span class="dollar cart__item-sum">250</span>
+                  </p>
                 </div>
-                <a href="#" class="sub-menu__cart-cancel" title="удалить из корзины"></a>
+                <a href="#" class="cart__item-remove"></a>
               </li>
             </ul>
-            <div class="sub-menu__cart-total">
+            <div class="cart__total-block">
               <div>TOTAL</div>
-              <div class="dollar">500.00</div>
+              <div class="dollar cart__total-sum">500.00</div>
             </div>
-            <a href="checkout.html" class="btn btn__secondary btn__cart cart_drop-down_btn">Checkout</a>
-            <a href="cart.html" class="btn btn__secondary btn__cart cart_drop-down_btn">Go to cart</a>
+            <a href="checkout.html" class="btn btn__secondary cart__btn">Checkout</a>
+            <a href="cart.html" class="btn btn__secondary cart__btn">Go to cart</a>
           </div>
         </div>
       </div>
-      <button class="btn btn__primary btn__primary_my-account"><span
-        class="caret-down btn__primary_my-account-caret">My Account</span></button>
+      <button class="btn btn__primary btn__primary_my-account">
+        <span class="caret-down btn__primary_my-account-caret">My Account</span></button>
     </div>
   </div>
 </header>
@@ -165,7 +170,7 @@
           </div>
         </div>
       </li>
-      <li class="top-menu__item"><a href="products.html" class="top-menu__link top-menu__link_active">Women</a>
+      <li class="top-menu__item"><a href="products.html" class="top-menu__link">Women</a>
         <div class="sub-menu top-menu__sub-menu_left">
           <span class="sub-menu__arrow top-menu__sub-menu_arrow-left"></span>
           <div class="sub-menu__col">
@@ -578,49 +583,45 @@
     </div>
   </div>
 </section>
-
-
 <div class="feature">
-  <div class="container feature_bg flex-box">
+  <div class="container feature__container">
     <div class="feature__banner">
-      <div class="feature__banner_text">
-        <h3 class="feature__banner_text_h3">30%<span class="color_pink">OFFER</span>
+      <div class="feature__banner-text">
+        <h3 class="feature__banner-text-h3">30%<span class="color-pink">OFFER</span>
         </h3>FOR WOMEN
       </div>
     </div>
-    <div class="flex-box flex__fd_col flex__jc_center">
-      <article class="feature__box flex-box">
-        <div class="feature__box_img flex-box flex__ai_start flex__jc_center">
+    <div class="feature__options">
+      <article class="feature__box">
+        <div class="feature__box-img feature__box-img_loc">
           <img src="img/feature_delivery.svg" alt="Free delivery">
         </div>
-        <div class="feature__box_desc">
-          <h3 class="feature__box_desc_h3">Free Delivery</h3>Worldwide delivery on all. Authorit tively morph
+        <div class="feature__box-desc">
+          <h3 class="feature__box-desc-h3">Free Delivery</h3>Worldwide delivery on all. Authorit tively morph
           next-generation innov tion with extensive models.
         </div>
       </article>
-      <article class="feature__box flex-box">
-        <div class="feature__box_img flex-box flex__ai_start flex__jc_center">
+      <article class="feature__box">
+        <div class="feature__box-img feature__box-img_loc">
           <img src="img/feature_discount.svg" alt="Sales & discounts">
         </div>
-        <div class="feature__box_desc">
-          <h3 class="feature__box_desc_h3">Sales & discounts</h3>Worldwide delivery on all. Authorit tively morph
+        <div class="feature__box-desc">
+          <h3 class="feature__box-desc-h3">Sales & discounts</h3>Worldwide delivery on all. Authorit tively morph
           next-generation innov tion with extensive models.
         </div>
       </article>
-      <article class="feature__box flex-box">
-        <div class="feature__box_img flex-box flex__ai_start flex__jc_center">
+      <article class="feature__box">
+        <div class="feature__box-img feature__box-img_loc">
           <img src="img/feature_quality.svg" alt="Quality assurance">
         </div>
-        <div class="feature__box_desc">
-          <h3 class="feature__box_desc_h3">Quality assurance</h3>Worldwide delivery on all. Authorit tively morph
+        <div class="feature__box-desc">
+          <h3 class="feature__box-desc-h3">Quality assurance</h3>Worldwide delivery on all. Authorit tively morph
           next-generation innov tion with extensive models.
         </div>
       </article>
     </div>
   </div>
 </div>
-
-
 <div class="subscribe">
   <div class="container subscribe__container">
     <div class="subscribe__panel subscribe__panel-reviews">

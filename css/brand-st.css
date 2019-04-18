@@ -491,24 +491,6 @@ body {
   font-weight: 700;
   text-transform: uppercase; }
 
-.cart_drop-down_btn {
-  display: block;
-  width: 225px;
-  height: 50px;
-  margin: 5px 0;
-  line-height: 50px;
-  text-decoration: none;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 700;
-  color: #4a4a4a;
-  text-transform: uppercase;
-  background-color: #ffffff;
-  border: 1px solid #eaeaea; }
-  .cart_drop-down_btn:hover {
-    color: #f16d7f;
-    border: 1px solid #f16d7f; }
-
 .banner__super-sale {
   display: block;
   position: relative;
