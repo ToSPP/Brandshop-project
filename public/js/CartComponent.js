@@ -708,14 +708,9 @@ Vue.component('cartTableItem', {
   props: ['item'],
   data() {
     return {
-      newQty: this.item.quantity,
       validQty: this.item.quantity,
       tempImg: 'https://placehold.it/100x115',
     };
-  },
-  computed: {
-
-
   },
   template: `
     <tr>
@@ -736,13 +731,13 @@ Vue.component('cartTableItem', {
         <input type="number" 
                class="product-table__input-quantity"
                min="1" max="99"
-               :value="setQty()"
-               @change="setQty()"
+               :value="item.quantity"
+               @input="setQty()"             
                >
       </td>
       <td class="product-table__cell product-table__text_uppercase product-table__row_border">FREE</td>
       <td class="product-table__cell product-table__row_border">
-        <span class="dollar">{{ item.price * validQty }}</span>
+        <span class="dollar">{{ item.price * item.quantity }}</span>
       </td>
       <td class="product-table__cell product-table__row_border">
         <a href="#" class="cart__item-remove" @click.prevent="removeProduct(item)"></a>
@@ -750,58 +745,44 @@ Vue.component('cartTableItem', {
     </tr>
   `,
   methods: {
-    changeQty(qty) {
-      // this.setQty();
-      this.newQty = qty;
-
-      if (this.newQty > 0) {
-        if ((this.newQty - this.item.quantity) === 1) {
+    setQty() {
+      // if (!event) return this.item.quantity;
+      const qty = +event.target.value;
+      // const qty = +this.item.quantity;
+      console.log(qty);
+      if (qty > 0) {
+        if ((qty - this.validQty) === 1) {
           this.addProductItem(this.item);
-        } else if ((this.newQty - this.item.quantity) === -1) {
+        } else if ((qty - this.validQty) === -1) {
           this.removeProductItem(this.item);
         } else {
           // const item = this.itemsList.find(el => el.id_product === product.id_product);
           // newQty -= product.quantity;
-          this.setProductQty(this.item, this.newQty);
+          this.setProductQty(this.item, qty);
         }
-        this.validQty = this.newQty;
+        this.validQty = qty;
       }
       // else {
-        // this.setProductQty(this.item, this.validQty);
-        // console.log("this: ", this.item);
-        // this.newQty = this.validQty;
-        // this.setQty();
+      //   console.log('true', this.validQty);
+      //   // this.setValue();
+      //   return this.item.quantity = '55';
+      //
       // }
-    },
-    setQty() {
-      console.log(event);
-      if (event) {
-        const qty = +event.target.value;
-        if (this.item.quantity !== qty) {
-          if (qty > 0) {
-            this.changeQty(qty);
-          } else {
-            return this.validQty;
-          }
-        }
-      }
-      return this.item.quantity;
 
-      // if (this.newQty < 1) {
-      //   return this.validQty;
-      // } else {
-      //   return this.validQty = this.item.quantity;
-      // }
+
     }
   },
   mounted() {
-    // this.currentQty = this.item.quantity;
+    this.validQty = this.item.quantity;
   },
   updated() {
-    // console.log(this.validQty);
-    console.log("table-item: ", this.item);
+    if (+this.item.quantity < 1) {
+      this.item.quantity = this.validQty;
+    }
   },
 });
+// :value="item.quantity"
+// @change="item.quantity"
 // v-model="item.quantity"
 // :value="setQty()"
 // @change="setQty()"
