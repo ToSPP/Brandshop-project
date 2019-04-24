@@ -6,6 +6,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/brand-bem.css">
 </head>
@@ -54,7 +55,7 @@
         </form>
       </div>
       <div class="header__panel-right">
-        <cart></cart>
+        <cart module="block" ref="cart"></cart>
         <button class="btn btn__primary btn__primary_my-account">
           <span class="caret-down btn__primary_my-account-caret">My Account</span></button>
       </div>
@@ -549,6 +550,25 @@
     </div>
   </footer>
 </div>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+  $( function() {
+    const sliderElem = $( "#slider-range" );
+    sliderElem.slider({
+      range: true,
+      min: 0,
+      max: 700,
+      values: [ 52, 400 ],
+      slide: function( event, ui ) {
+        $( "#amountFrom" ).text(ui.values[ 0 ]);
+        $( "#amountTo" ).text(ui.values[ 1 ]);
+      }
+    });
+    $( "#amountFrom" ).text(sliderElem.slider( "values", 0 ));
+    $( "#amountTo" ).text(sliderElem.slider( "values", 1 ));
+  } );
+</script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="js/CatalogComponent.js"></script>
 <script src="js/ProductsComponent.js"></script>

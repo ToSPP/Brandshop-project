@@ -54,49 +54,7 @@
         </form>
       </div>
       <div class="header__panel-right">
-        <div class="cart cart__drop cart__pos">
-          <a href="cart.html" class="cart__link"><img src="img/cart.svg" alt="Cart">
-            <span class="cart__qty cart__qty_pos">2</span></a>
-          <div class="cart__block cart__sub-menu">
-            <span class="cart__block-arrow"></span>
-            <div class="cart__column">
-              <ul class="cart__list">
-                <li class="cart__item">
-                  <a href="single.html">
-                    <img src="img/product_1_72x85.png" alt="product_1"></a>
-                  <div class="cart__item-desc">
-                    <a href="single.html" class="cart__item-title">Rebox Zane</a>
-                    <img src="img/rating_4-5.png" alt="rating_4-5_stars">
-                    <p class="cart__item-total">
-                      <span class="cart__item-qty">1</span> x
-                      <span class="dollar cart__item-sum">250</span>
-                    </p>
-                  </div>
-                  <a href="#" class="cart__item-remove"></a>
-                </li>
-                <li class="cart__item">
-                  <a href="single.html">
-                    <img src="img/product_2_72x85.png" alt="product_2"></a>
-                  <div class="cart__item-desc">
-                    <a href="single.html" class="cart__item-title">Rebox Zane</a>
-                    <img src="img/rating_4-5.png" alt="rating_4-5_stars">
-                    <p class="cart__item-total">
-                      <span class="cart__item-qty">1</span> x
-                      <span class="dollar cart__item-sum">250</span>
-                    </p>
-                  </div>
-                  <a href="#" class="cart__item-remove"></a>
-                </li>
-              </ul>
-              <div class="cart__total-block">
-                <div>TOTAL</div>
-                <div class="dollar cart__total-sum">500.00</div>
-              </div>
-              <a href="checkout.html" class="btn btn__secondary cart__btn">Checkout</a>
-              <a href="cart.html" class="btn btn__secondary cart__btn">Go to cart</a>
-            </div>
-          </div>
-        </div>
+        <cart module="block" ref="cart"></cart>
         <button class="btn btn__primary btn__primary_my-account">
           <span class="caret-down btn__primary_my-account-caret">My Account</span></button>
       </div>
@@ -620,6 +578,7 @@
   </footer>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="js/CartComponent.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

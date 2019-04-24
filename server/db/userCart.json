@@ -1,16 +1,13 @@
 [
-  {
-    "quantity": 1,
-    "id_product": 1,
-    "product_name": "Kenzo Tiger T-Shirt",
-    "img": "product_1_72x85.png",
-    "price": 93.50
-  },
-  {
-    "quantity": 1,
-    "id_product": 2,
-    "product_name": "Off-White T-Shirt",
-    "img": "product_2_72x85.png",
-    "price": 300
-  }
+    {
+        "quantity": 16,
+        "id_product": 6,
+        "product_name": "Superdry Graphic Top",
+        "category": "Pants",
+        "brand": "Giorgio Armani",
+        "designer": "Carolina Herrera",
+        "img": "product_6.jpg",
+        "price": 30,
+        "rating": 5
+    }
 ]

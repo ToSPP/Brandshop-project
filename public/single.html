@@ -54,49 +54,7 @@
         </form>
       </div>
       <div class="header__panel-right">
-        <div class="cart cart__drop cart__pos">
-          <a href="cart.html" class="cart__link"><img src="img/cart.svg" alt="Cart">
-            <span class="cart__qty cart__qty_pos">2</span></a>
-          <div class="cart__block cart__sub-menu">
-            <span class="cart__block-arrow"></span>
-            <div class="cart__column">
-              <ul class="cart__list">
-                <li class="cart__item">
-                  <a href="single.html">
-                    <img src="img/product_1_72x85.png" alt="product_1"></a>
-                  <div class="cart__item-desc">
-                    <a href="single.html" class="cart__item-title">Rebox Zane</a>
-                    <img src="img/rating_4-5.png" alt="rating_4-5_stars">
-                    <p class="cart__item-total">
-                      <span class="cart__item-qty">1</span> x
-                      <span class="dollar cart__item-sum">250</span>
-                    </p>
-                  </div>
-                  <a href="#" class="cart__item-remove"></a>
-                </li>
-                <li class="cart__item">
-                  <a href="single.html">
-                    <img src="img/product_2_72x85.png" alt="product_2"></a>
-                  <div class="cart__item-desc">
-                    <a href="single.html" class="cart__item-title">Rebox Zane</a>
-                    <img src="img/rating_4-5.png" alt="rating_4-5_stars">
-                    <p class="cart__item-total">
-                      <span class="cart__item-qty">1</span> x
-                      <span class="dollar cart__item-sum">250</span>
-                    </p>
-                  </div>
-                  <a href="#" class="cart__item-remove"></a>
-                </li>
-              </ul>
-              <div class="cart__total-block">
-                <div>TOTAL</div>
-                <div class="dollar cart__total-sum">500.00</div>
-              </div>
-              <a href="checkout.html" class="btn btn__secondary cart__btn">Checkout</a>
-              <a href="cart.html" class="btn btn__secondary cart__btn">Go to cart</a>
-            </div>
-          </div>
-        </div>
+        <cart module="block" ref="cart"></cart>
         <button class="btn btn__primary btn__primary_my-account">
           <span class="caret-down btn__primary_my-account-caret">My Account</span></button>
       </div>
@@ -437,139 +395,11 @@
       </ul>
     </div>
   </div>
-  <div class="slider">
-    <i class="slider__arrow_prev fas fa-angle-left"></i>
-    <div class="container slider__container">
-      <img src="img/moschino_1.png" alt="Product Moschino">
-    </div>
-    <i class="slider__arrow_next fas fa-angle-right"></i>
-  </div>
-  <div class="description container">
-    <div class="description__container">
-      <h3 class="collection__name">WOMEN COLLECTION</h3>
-      <div class="names-separator"></div>
-      <h3 class="product__name">Moschino Cheap And Chic</h3>
-      <p class="description__text">Compellingly actualize fully researched processes before proactive outsourcing.
-        Progressively syndicate collaborative architectures before cutting-edge services. Completely visualize parallel
-        core competencies rather than exceptional portals. </p>
-      <div class="product-properties">
-        <div class="property">
-          <span class="text_grey">MATERIAL:</span> COTTON
-        </div>
-        <div class="property">
-          <span class="text_grey">DESIGNER:</span> BINBURHAN
-        </div>
-        <div class="property-price dollar">561</div>
-        <div class="product-options">
-          <div class="option">CHOOSE COLOR
-            <div class="option__block">
-              <div class="attr-color-red option__color-chosen" data-color="red">Red</div>
-              <i class="fas fa-angle-down"></i>
-              <ul class="option__dropdown">
-                <li class="option__item attr_color_green" data-color="green">Green</li>
-                <li class="option__item attr_color_cyan" data-color="cyan">Cyan</li>
-                <li class="option__item attr_color_yellow" data-color="yellow">Yellow</li>
-              </ul>
-            </div>
-          </div>
-          <div class="option">CHOOSE SIZE
-            <div class="option__block">
-              <div class="option__current-size" data-size="xxl">XXL</div>
-              <i class="fas fa-angle-down"></i>
-              <ul class="option__dropdown">
-                <li class="option__item" data-size="xl">XL</li>
-                <li class="option__item" data-size="l">L</li>
-                <li class="option__item" data-size="m">M</li>
-                <li class="option__item" data-size="s">S</li>
-                <li class="option__item" data-size="xs">XS</li>
-              </ul>
-            </div>
-          </div>
-          <div class="option">QUANTITY
-            <input class="option__input" type="number" value="1" min="1" max="99">
-          </div>
-        </div>
-        <button type="button" class="btn btn__primary_inverse btn__options_submit">
-          <span class="cart_r">Add to Cart</span></button>
-      </div>
-    </div>
-  </div>
+  <slider :images="['img/moschino_1.png', 'https://placehold.it/597x724']"></slider>
+  <product-single></product-single>
   <section class="products-other container">
     <h3 class="products-other__h3">you may like also</h3>
-    <div class="products-other__catalog">
-      <div class="product">
-        <a href="#" class="product__add">
-          <img src="img/cart_w.svg" class="cart_w" alt="cart">Add to Cart</a>
-        <a href="#" class="product__retweet">
-          <img src="img/retweet.svg" alt="retweet"></a>
-        <a href="#" class="product__like">
-          <img src="img/like.svg" alt="like"></a>
-        <a href="single.html">
-          <img src="img/also-1.png" class="product__img" alt="product_1"></a>
-        <div class="product__desc">
-          <a href="single.html" class="product__desc-link">
-            <h3 class="product__desc-h3">Mango People T-shirt</h3></a>
-          <div class="product__desc-row">
-            <span class="product__price dollar color-pink">52.00</span>
-            <img src="img/rating_4.png" class="product__rating" alt="rating_4_stars">
-          </div>
-        </div>
-      </div>
-      <div class="product">
-        <a href="#" class="product__add">
-          <img src="img/cart_w.svg" class="cart_w" alt="cart">Add to Cart</a>
-        <a href="#" class="product__retweet">
-          <img src="img/retweet.svg" alt="retweet"></a>
-        <a href="#" class="product__like">
-          <img src="img/like.svg" alt="like"></a>
-        <a href="single.html">
-          <img src="img/also-2.png" class="product__img" alt="product_2"></a>
-        <div class="product__desc">
-          <a href="single.html" class="product__desc-link">
-            <h3 class="product__desc-h3">Mango People T-shirt</h3></a>
-          <div class="product__desc-row">
-            <span class="product__price dollar color-pink">52.00</span>
-            <img src="img/rating_4.png" class="product__rating" alt="rating_4_stars">
-          </div>
-        </div>
-      </div>
-      <div class="product">
-        <a href="#" class="product__add">
-          <img src="img/cart_w.svg" class="cart_w" alt="cart">Add to Cart</a>
-        <a href="#" class="product__retweet">
-          <img src="img/retweet.svg" alt="retweet"></a>
-        <a href="#" class="product__like">
-          <img src="img/like.svg" alt="like"></a>
-        <a href="single.html">
-          <img src="img/also-3.png" class="product__img" alt="product_3"></a>
-        <div class="product__desc">
-          <a href="single.html" class="product__desc-link">
-            <h3 class="product__desc-h3">Mango People T-shirt</h3></a>
-          <div class="product__desc-row">
-            <span class="product__price dollar color-pink">52.00</span>
-            <img src="img/rating_4.png" class="product__rating" alt="rating_4_stars">
-          </div>
-        </div>
-      </div>
-      <div class="product">
-        <a href="#" class="product__add">
-          <img src="img/cart_w.svg" class="cart_w" alt="cart">Add to Cart</a>
-        <a href="#" class="product__retweet">
-          <img src="img/retweet.svg" alt="retweet"></a>
-        <a href="#" class="product__like">
-          <img src="img/like.svg" alt="like"></a>
-        <a href="single.html">
-          <img src="img/also-4.png" class="product__img" alt="product_4"></a>
-        <div class="product__desc">
-          <a href="single.html" class="product__desc-link">
-            <h3 class="product__desc-h3">Mango People T-shirt</h3></a>
-          <div class="product__desc-row">
-            <span class="product__price dollar color-pink">52.00</span>
-            <img src="img/rating_4.png" class="product__rating" alt="rating_4_stars">
-          </div>
-        </div>
-      </div>
-    </div>
+    <products class-name="other"></products>
   </section>
   <div class="subscribe">
     <div class="container subscribe__container">
@@ -690,6 +520,9 @@
   </footer>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="js/ProductsComponent.js"></script>
+<script src="js/SliderComponent.js"></script>
+<script src="js/CartComponent.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

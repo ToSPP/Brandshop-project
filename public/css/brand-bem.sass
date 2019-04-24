@@ -1094,12 +1094,15 @@ body
 .catalog-menu__list
   margin-top: 0
   margin-bottom: 20px
-  padding-top: 10px
   padding-left: 17px
   list-style-type: none
 
+.catalog-menu__list_active
+  padding-top: 10px
+
 .catalog-menu__item
   line-height: 2.5em
+  transition: all 150ms
 
 .catalog-menu__link
   display: block
@@ -1112,12 +1115,15 @@ body
    ========================================================================== */
 
 .catalog__filters
-  @include flexbox
+  display: grid
+  grid-template-columns: repeat(3, 263px)
+  grid-template-rows: 1fr
   @include justify-content(space-between)
 
 .filter
-  max-width: 31%
-  flex: 0 0 31%
+  @include flexbox
+  @include align-content(space-between)
+  @include flex-wrap(wrap)
 
 .filter__h3
   color: #6f6e6e
@@ -1181,46 +1187,28 @@ body
   content: "\f00c"
   line-height: 12px
 
-.price_range
-  -webkit-appearance: none
+.ui-slider
   width: 100%
-  background: transparent
-  &:focus
-    outline: none
-  &::-webkit-slider-thumb
-    -webkit-appearance: none
-    width: 14px
-    height: 14px
-    border-radius: 7px
-    background-color: #f16d7f
-    margin-top: -4px
-  &::-webkit-slider-runnable-track
-    width: 100%
-    height: 6px
-    cursor: pointer
-    background: #f0f0f0
-  &::-moz-range-thumb
-    width: 14px
-    height: 14px
-    border-radius: 7px
-    background-color: #f16d7f
-  &::-moz-range-track
-    width: 100%
-    height: 6px
-    cursor: pointer
-    background: #f0f0f0
-  &::-ms-thumb
-    width: 14px
-    height: 14px
-    border-radius: 7px
-    background-color: #f16d7f
-  &::-ms-track
-    width: 100%
-    cursor: pointer
-    background: #f0f0f0
+  height: 6px !important
+  margin-bottom: 15px !important
+  background-color: #f0f0f0 !important
+  border: none !important
 
-output[name=priceShow]
-  line-height: 2.5em
+.ui-slider-range
+  background-color: $color-pink !important
+
+.ui-slider-handle
+  width: 14px !important
+  height: 14px !important
+  border: 1px solid $color-pink !important
+  border-radius: 7px !important
+  background-color: $color-pink !important
+  outline: none
+
+.filter-range-amounts
+  width: 100%
+  @include flexbox
+  @include justify-content(space-between)
   color: #6f6e6e
 
 .catalog__sort
@@ -2021,6 +2009,7 @@ output[name=priceShow]
   font-size: 14px
   font-weight: 700
   text-transform: uppercase
+  text-decoration: none
   padding: 19px 39px
 
 .btn__shopping-cart_small

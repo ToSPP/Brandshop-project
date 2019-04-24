@@ -138,5 +138,45 @@
     "img": "product_14.png",
     "price": 400,
     "rating": 4
+  },
+  {
+    "id_product": 15,
+    "product_name": "Lace Midi Dress",
+    "category": "Dresses",
+    "brand": "Zara",
+    "designer": "Kate Spade",
+    "img": "product_15.png",
+    "price": 45,
+    "rating": 3
+  },
+  {
+    "id_product": 16,
+    "product_name": "Fishtail Maxi Dress",
+    "category": "Dresses",
+    "brand": "Dolce & Gabbana",
+    "designer": "Tommy Hilfiger",
+    "img": "product_16.png",
+    "price": 400,
+    "rating": 3
+  },
+  {
+    "id_product": 17,
+    "product_name": "Bodycon Midi Dress",
+    "category": "Dresses",
+    "brand": "Zara",
+    "designer": "Kate Spade",
+    "img": "product_17.png",
+    "price": 400,
+    "rating": 3
+  },
+  {
+    "id_product": 18,
+    "product_name": "Wrap Midi Dress",
+    "category": "Dresses",
+    "brand": "Giorgio Armani",
+    "designer": "Carolina Herrera",
+    "img": "product_18.png",
+    "price": 400,
+    "rating": 3
   }
 ]
