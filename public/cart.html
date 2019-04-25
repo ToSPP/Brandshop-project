@@ -10,128 +10,7 @@
   <link rel="stylesheet" href="css/brand-bem.css">
 </head>
 <body>
-
-
 <div id="app">
-  <cart module="main"></cart>
-  <!--<div class="subscribe">
-  <div class="container subscribe__container">
-    <div class="subscribe__panel subscribe__panel-reviews">
-      <div class="reviews">
-        <div class="reviews__avatar">
-          <img src="img/avatar.png" alt="avatar">
-        </div>
-        <div class="reviews__box">
-          <div class="reviews__msg"><span class="reviews__msg_italic">“Vestibulum quis porttitor dui! Quisque viverra nunc mi, a pulvinar purus condimentum a. Aliquam condimentum mattis neque sed pretium”</span>
-            <h3 class="reviews__name">Bin Burhan</h3>
-            <span class="reviews__country">Dhaka, Bd</span>
-          </div>
-          <div class="reviews__toggle">
-            <a href="#" class="reviews__btn"></a>
-            <a href="#" class="reviews__btn reviews__btn_active"></a>
-            <a href="#" class="reviews__btn"></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="subscribe__panel subscribe__panel-form">
-      <div class="subscribe__form">
-        <h3 class="subscribe__form-title">SUBSCRIBE</h3>
-        FOR OUR NEWLETTER AND PROMOTION
-        <form action="#">
-          <input type="email" class="input subscribe__input" placeholder="Enter Your Email" required>
-          <button type="submit" class="btn btn__primary btn__subscribe">Subscribe</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="bottom-menu">
-  <div class="container bottom-menu__container">
-    <div class="bottom-menu__panel-left">
-      <a href="index.html" class="logo">
-        <img src="img/logo.png" alt="logo" class="logo__img">
-        <span class="logo__title">BRAN<span class="logo__title_mark">D</span></span>
-      </a>
-      <p class="bottom-menu__par">
-        Objectively transition extensive data rather than cross functional solutions. Monotonectally syndicate
-        multidisciplinary materials before go forward benefits. Intrinsicly syndicate an expanded array of
-        processes and cross-unit partnerships.</p>
-      <p class="bottom-menu__par">Efficiently plagiarize 24/365 action items and focused infomediaries.
-        Distinctively seize superior initiatives for wireless technologies. Dynamically optimize.</p>
-    </div>
-    <div class="bottom-menu__panel-right">
-      <div class="bottom-menu__col">
-        <h3 class="bottom-menu__h3">COMPANY</h3>
-        <ul class="bottom-menu__ul">
-          <li class="bottom-menu__li">
-            <a href="index.html" class="bottom-menu__link">Home</a></li>
-          <li class="bottom-menu__li">
-            <a href="#" class="bottom-menu__link">Shop</a></li>
-          <li class="bottom-menu__li">
-            <a href="#" class="bottom-menu__link">About</a></li>
-          <li class="bottom-menu__li">
-            <a href="#" class="bottom-menu__link">How It Works</a></li>
-          <li class="bottom-menu__li">
-            <a href="#" class="bottom-menu__link">Contact</a></li>
-        </ul>
-      </div>
-      <div class="bottom-menu__col">
-        <h3 class="bottom-menu__h3">INFORMATION</h3>
-        <ul class="bottom-menu__ul">
-          <li class="bottom-menu__li">
-            <a href="#" class="bottom-menu__link">Tearms & Condition</a></li>
-          <li class="bottom-menu__li">
-            <a href="#" class="bottom-menu__link">Privacy Policy</a></li>
-          <li class="bottom-menu__li">
-            <a href="#" class="bottom-menu__link">How to Buy</a></li>
-          <li class="bottom-menu__li">
-            <a href="#" class="bottom-menu__link">How to Sell</a></li>
-          <li class="bottom-menu__li">
-            <a href="#" class="bottom-menu__link">Promotion</a></li>
-        </ul>
-      </div>
-      <div class="bottom-menu__col">
-        <h3 class="bottom-menu__h3">SHOP CATEGORY</h3>
-        <ul class="bottom-menu__ul">
-          <li class="bottom-menu__li">
-            <a href="products.html" class="bottom-menu__link">Men</a></li>
-          <li class="bottom-menu__li">
-            <a href="products.html" class="bottom-menu__link">Women</a></li>
-          <li class="bottom-menu__li">
-            <a href="products.html" class="bottom-menu__link">Child</a></li>
-          <li class="bottom-menu__li">
-            <a href="products.html" class="bottom-menu__link">Apparel</a></li>
-          <li class="bottom-menu__li">
-            <a href="products.html" class="bottom-menu__link">Brows All</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<footer class="footer footer__margin">
-  <div class="container footer__container">
-    <div class="footer__copy">&copy; 2017 Brand All Rights Reserved.</div>
-    <div class="socials">
-      <a href="#" class="socials__btn socials__btn_enabled">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="#" class="socials__btn socials__btn_enabled">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <div class="socials__btn socials__btn_disabled">
-        <i class="fab fa-linkedin-in"></i>
-      </div>
-      <a href="#" class="socials__btn socials__btn_enabled">
-        <i class="fab fa-pinterest-p"></i>
-      </a>
-      <a href="#" class="socials__btn socials__btn_enabled">
-        <i class="fab fa-google-plus-g"></i>
-      </a>
-    </div>
-  </div>
-</footer>-->
-  <!--
   <header class="header">
     <div class="container header__container">
       <div class="header__panel-left">
@@ -175,7 +54,7 @@
         </form>
       </div>
       <div class="header__panel-right">
-        <cart module="block"></cart>
+        <cart ref="cart"></cart>
         <button class="btn btn__primary btn__primary_my-account">
           <span class="caret-down btn__primary_my-account-caret">My Account</span></button>
       </div>
@@ -515,7 +394,125 @@
         <li class="breadcrumbs__item"><span class="breadcrumbs__current">New Arrivals</span></li>
       </ul>
     </div>
-  </div> -->
+  </div>
+  <cart-main></cart-main>
+  <div class="subscribe">
+    <div class="container subscribe__container">
+      <div class="subscribe__panel subscribe__panel-reviews">
+        <div class="reviews">
+          <div class="reviews__avatar">
+            <img src="img/avatar.png" alt="avatar">
+          </div>
+          <div class="reviews__box">
+            <div class="reviews__msg"><span class="reviews__msg_italic">“Vestibulum quis porttitor dui! Quisque viverra nunc mi, a pulvinar purus condimentum a. Aliquam condimentum mattis neque sed pretium”</span>
+              <h3 class="reviews__name">Bin Burhan</h3>
+              <span class="reviews__country">Dhaka, Bd</span>
+            </div>
+            <div class="reviews__toggle">
+              <a href="#" class="reviews__btn"></a>
+              <a href="#" class="reviews__btn reviews__btn_active"></a>
+              <a href="#" class="reviews__btn"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="subscribe__panel subscribe__panel-form">
+        <div class="subscribe__form">
+          <h3 class="subscribe__form-title">SUBSCRIBE</h3>
+          FOR OUR NEWLETTER AND PROMOTION
+          <form action="#">
+            <input type="email" class="input subscribe__input" placeholder="Enter Your Email" required>
+            <button type="submit" class="btn btn__primary btn__subscribe">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-menu">
+    <div class="container bottom-menu__container">
+      <div class="bottom-menu__panel-left">
+        <a href="index.html" class="logo">
+          <img src="img/logo.png" alt="logo" class="logo__img">
+          <span class="logo__title">BRAN<span class="logo__title_mark">D</span></span>
+        </a>
+        <p class="bottom-menu__par">
+          Objectively transition extensive data rather than cross functional solutions. Monotonectally syndicate
+          multidisciplinary materials before go forward benefits. Intrinsicly syndicate an expanded array of
+          processes and cross-unit partnerships.</p>
+        <p class="bottom-menu__par">Efficiently plagiarize 24/365 action items and focused infomediaries.
+          Distinctively seize superior initiatives for wireless technologies. Dynamically optimize.</p>
+      </div>
+      <div class="bottom-menu__panel-right">
+        <div class="bottom-menu__col">
+          <h3 class="bottom-menu__h3">COMPANY</h3>
+          <ul class="bottom-menu__ul">
+            <li class="bottom-menu__li">
+              <a href="index.html" class="bottom-menu__link">Home</a></li>
+            <li class="bottom-menu__li">
+              <a href="#" class="bottom-menu__link">Shop</a></li>
+            <li class="bottom-menu__li">
+              <a href="#" class="bottom-menu__link">About</a></li>
+            <li class="bottom-menu__li">
+              <a href="#" class="bottom-menu__link">How It Works</a></li>
+            <li class="bottom-menu__li">
+              <a href="#" class="bottom-menu__link">Contact</a></li>
+          </ul>
+        </div>
+        <div class="bottom-menu__col">
+          <h3 class="bottom-menu__h3">INFORMATION</h3>
+          <ul class="bottom-menu__ul">
+            <li class="bottom-menu__li">
+              <a href="#" class="bottom-menu__link">Tearms & Condition</a></li>
+            <li class="bottom-menu__li">
+              <a href="#" class="bottom-menu__link">Privacy Policy</a></li>
+            <li class="bottom-menu__li">
+              <a href="#" class="bottom-menu__link">How to Buy</a></li>
+            <li class="bottom-menu__li">
+              <a href="#" class="bottom-menu__link">How to Sell</a></li>
+            <li class="bottom-menu__li">
+              <a href="#" class="bottom-menu__link">Promotion</a></li>
+          </ul>
+        </div>
+        <div class="bottom-menu__col">
+          <h3 class="bottom-menu__h3">SHOP CATEGORY</h3>
+          <ul class="bottom-menu__ul">
+            <li class="bottom-menu__li">
+              <a href="products.html" class="bottom-menu__link">Men</a></li>
+            <li class="bottom-menu__li">
+              <a href="products.html" class="bottom-menu__link">Women</a></li>
+            <li class="bottom-menu__li">
+              <a href="products.html" class="bottom-menu__link">Child</a></li>
+            <li class="bottom-menu__li">
+              <a href="products.html" class="bottom-menu__link">Apparel</a></li>
+            <li class="bottom-menu__li">
+              <a href="products.html" class="bottom-menu__link">Brows All</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer footer__margin">
+    <div class="container footer__container">
+      <div class="footer__copy">&copy; 2017 Brand All Rights Reserved.</div>
+      <div class="socials">
+        <a href="#" class="socials__btn socials__btn_enabled">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="socials__btn socials__btn_enabled">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <div class="socials__btn socials__btn_disabled">
+          <i class="fab fa-linkedin-in"></i>
+        </div>
+        <a href="#" class="socials__btn socials__btn_enabled">
+          <i class="fab fa-pinterest-p"></i>
+        </a>
+        <a href="#" class="socials__btn socials__btn_enabled">
+          <i class="fab fa-google-plus-g"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="js/CartComponent.js"></script>
