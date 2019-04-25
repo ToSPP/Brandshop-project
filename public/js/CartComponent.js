@@ -121,9 +121,6 @@ Vue.component('cart', {
         }
       })
   },
-  updated() {
-    // console.log("cart: ", this.itemsList);
-  },
 });
 
 Vue.component('cartMain', {
@@ -677,9 +674,6 @@ Vue.component('cartMain', {
       </footer>
     </div>
   `,
-  updated() {
-    // console.log("main: ", this.itemsList);
-  },
 });
 
 Vue.component('cartTable', {
@@ -728,7 +722,7 @@ Vue.component('cartTableItem', {
       </td>
       <td class="product-table__cell product-table__row_border"><span class="dollar">{{ item.price }}</span></td>
       <td class="product-table__cell product-table__row_border">
-        <input type="number" 
+        <input type="number"
                class="product-table__input-quantity"
                min="1" max="99"
                :value="item.quantity"
@@ -746,46 +740,21 @@ Vue.component('cartTableItem', {
   `,
   methods: {
     setQty() {
-      // if (!event) return this.item.quantity;
-      const qty = +event.target.value;
-      // const qty = +this.item.quantity;
-      console.log(qty);
-      if (qty > 0) {
-        if ((qty - this.validQty) === 1) {
+      const newQty = +event.target.value;
+      if (newQty > 0) {
+        if ((newQty - this.item.quantity) === 1) {
           this.addProductItem(this.item);
-        } else if ((qty - this.validQty) === -1) {
+        } else if ((newQty - this.item.quantity) === -1) {
           this.removeProductItem(this.item);
         } else {
-          // const item = this.itemsList.find(el => el.id_product === product.id_product);
-          // newQty -= product.quantity;
-          this.setProductQty(this.item, qty);
+          this.setProductQty(this.item, newQty);
         }
-        this.validQty = qty;
+      } else {
+        event.target.value = this.item.quantity;
       }
-      // else {
-      //   console.log('true', this.validQty);
-      //   // this.setValue();
-      //   return this.item.quantity = '55';
-      //
-      // }
-
-
-    }
-  },
-  mounted() {
-    this.validQty = this.item.quantity;
-  },
-  updated() {
-    if (+this.item.quantity < 1) {
-      this.item.quantity = this.validQty;
     }
   },
 });
-// :value="item.quantity"
-// @change="item.quantity"
-// v-model="item.quantity"
-// :value="setQty()"
-// @change="setQty()"
 
 Vue.component('cartBlock', {
   inject: ['getTotalSum'],
@@ -823,9 +792,6 @@ Vue.component('cartBlock', {
       </div>
     </div>
   `,
-  updated() {
-    // console.log("block: ", this.itemsList);
-  },
 });
 
 Vue.component('cartBlockItem', {
