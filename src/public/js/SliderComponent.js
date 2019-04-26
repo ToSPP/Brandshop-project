@@ -1,4 +1,4 @@
-Vue.component('slider', {
+const slider = {
   props: ['images'],
   data() {
     return {
@@ -32,4 +32,6 @@ Vue.component('slider', {
   mounted() {
     return this.currentImg = this.allImages.length ? this.allImages[0] : this.tempImg;
   },
-});
+};
+
+export default slider;

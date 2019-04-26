@@ -2,12 +2,10 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Brandshop -- Checkout</title>
+  <title>Brandshop -- Cart</title>
   <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/brand-bem.css">
 </head>
 <body>
 <div id="app">
@@ -54,7 +52,7 @@
         </form>
       </div>
       <div class="header__panel-right">
-        <cart module="block" ref="cart"></cart>
+        <cart ref="cart"></cart>
         <button class="btn btn__primary btn__primary_my-account">
           <span class="caret-down btn__primary_my-account-caret">My Account</span></button>
       </div>
@@ -130,7 +128,7 @@
             </div>
           </div>
         </li>
-        <li class="top-menu__item"><a href="products.html" class="top-menu__link top-menu__link_active">Women</a>
+        <li class="top-menu__item"><a href="products.html" class="top-menu__link">Women</a>
           <div class="sub-menu top-menu__sub-menu_left">
             <span class="sub-menu__arrow top-menu__sub-menu_arrow-left"></span>
             <div class="sub-menu__col">
@@ -395,70 +393,7 @@
       </ul>
     </div>
   </div>
-  <div class="checkout">
-    <div class="container checkout__container">
-      <ul class="checkout__list">
-        <li class="checkout__item">
-          <a href="#" class="checkout__item-title">01. Shipping Adress</a>
-          <div class="checkout__item-block">
-            <div class="checkout__item-block-col">
-              <form action="#" method="post">
-                <h3 class="checkout__h3">Check as a guest or register</h3>
-                Register with us for future convenience
-                <div class="checkout__checkbox">
-                  <h4 class="checkout__h4">
-                    <label>
-                      <input type="radio" class="checkout__checkbox-input" name="checkout-as">
-                      <span class="checkout__checkbox-label"> checkout as guest</span>
-                    </label>
-                  </h4>
-                  <h4 class="checkout__h4">
-                    <label>
-                      <input type="radio" name="checkout-as" class="checkout__checkbox-input">
-                      <span class="checkout__checkbox-label"> register</span>
-                    </label></h4>
-                </div>
-                <h3 class="checkout__h3">register and save time!</h3>
-                Register with us for future convenience
-                <p class="checkout__features">
-                  <i class="fas fa-angle-double-right"></i> Fast and easy checkout<br>
-                  <i class="fas fa-angle-double-right"></i> Easy access to your order history and status
-                </p>
-                <button type="button" class="btn btn__secondary checkout__btn_gray">Continue</button>
-              </form>
-            </div>
-            <div class="checkout__item-block-col">
-              <form action="#" method="post">
-                <h3 class="checkout__h3">Already registed?</h3>
-                Please log in below
-                <label class="checkout__login-label">
-                  <span class="checkout__login-title required-before">EMAIL ADDRESS</span>
-                  <input type="email" class="checkout__input_text" required>
-                </label>
-                <label class="checkout__login-label">
-                  <span class="checkout__login-title required-before">PASSWORD</span>
-                  <input type="password" class="checkout__input_text" required>
-                </label>
-                <div class="checkout__required-text">* Required Fileds</div>
-                <input type="submit" value="Log in" class="btn__secondary checkout__btn_gray">
-                <a href="#" class="forgot-password">Forgot Password ?</a>
-              </form>
-            </div>
-          </div>
-        </li>
-        <li class="checkout__item">
-          <a href="#" class="checkout__item-title">02. BILLING INFORMATION</a></li>
-        <li class="checkout__item">
-          <a href="#" class="checkout__item-title">03. SHIPPING INFORMATION</a></li>
-        <li class="checkout__item">
-          <a href="#" class="checkout__item-title">04. SHIPPING METHOD</a></li>
-        <li class="checkout__item">
-          <a href="#" class="checkout__item-title">05. PAYMENT METHOD</a></li>
-        <li class="checkout__item">
-          <a href="#" class="checkout__item-title">06. ORDER REVIEW</a></li>
-      </ul>
-    </div>
-  </div>
+  <cart-main></cart-main>
   <div class="subscribe">
     <div class="container subscribe__container">
       <div class="subscribe__panel subscribe__panel-reviews">
@@ -578,7 +513,5 @@
   </footer>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="js/CartComponent.js"></script>
-<script src="js/main.js"></script>
 </body>
 </html>

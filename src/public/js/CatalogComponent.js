@@ -1,139 +1,4 @@
-Vue.component('catalog', {
-  data() {
-    return {
-      catalogUrl: '/api/catalog',
-    };
-  },
-  template: `
-    <div class="container catalog__container">
-      <catalog-menu :catalog-url="catalogUrl"></catalog-menu>
-      <div class="catalog">
-        <catalog-filters></catalog-filters>
-        <catalog-sort></catalog-sort>
-        <products :catalog-url="catalogUrl" ref="products" class-name="catalog"></products>
-        <catalog-pagination></catalog-pagination>
-      </div>
-    </div>
-  `,
-});
-
-Vue.component('catalog-menu', {
-  props: ['catalogUrl'],
-  data() {
-    return {
-      url: this.catalogUrl,
-      menuBlocks: [],
-    };
-  },
-  template: `
-    <div class="catalog-menu">
-      <div class="catalog-menu__block"
-           v-for="(block, i) in menuBlocks"
-           :key="i">
-        <catalog-menu-block :block="block" ref="menuBlock"></catalog-menu-block>
-      </div>
-    </div>
-  `,
-  methods: {
-    splitToItems(data) {
-      const items = {
-        category: {},
-        brand: {},
-        designer: {},
-      };
-
-      for (const item of data) {
-        if (item.category) items.category[item.category] = '';
-        if (item.brand) items.brand[item.brand] = '';
-        if (item.designer) items.designer[item.designer] = '';
-      }
-
-      for (let key in items) {
-        const item = {};
-        item[key] = Object.keys(items[key]);
-        this.menuBlocks.push(item);
-      }
-    },
-  },
-  mounted() {
-    this.$root.getJSON(`${this.url}`)
-      .then(data => {
-        this.splitToItems(data);
-      });
-  },
-});
-
-Vue.component('catalog-menu-block', {
-  props: ['block'],
-  data() {
-    return {
-      isVisible: false,
-    };
-  },
-  template: `
-    <div>
-      <h3 class="catalog-menu__title"
-          @click="showList"
-       >{{ getTitleItem(block) }}</h3>
-       <transition-group
-          tag="ul"
-          class="catalog-menu__list"
-          :class="{'catalog-menu__list_active': isVisible}"
-          :css="false"
-          @before-enter="beforeEnter"
-          @enter="enter"
-          @leave="leave"
-        >  
-          <li class="catalog-menu__item"
-              v-for="(item, j) in getListItems()"
-              :key="item"
-              :data-index="j">
-            <a href="#" class="catalog-menu__link">{{ item }}</a>
-          </li>
-      </transition-group>  
-    </div>
-  `,
-  methods: {
-    getListItems() {
-      return this.isVisible ? Object.values(this.block)[0] : [];
-    },
-    getTitleItem(obj) {
-      let title = Object.keys(obj)[0];
-      return title.charAt(0).toUpperCase() + title.slice(1);
-    },
-    showList() {
-      if (this.isVisible) {
-        this.isVisible = false;
-      } else {
-        for (const item of this.$parent.$refs.menuBlock) {
-          item.isVisible = false;
-        }
-        this.isVisible = true;
-      }
-    },
-    beforeEnter(el) {
-      el.style.opacity = 0;
-      el.style.height = 0;
-    },
-    enter(el, done) {
-      const delay = el.dataset.index * 30;
-      setTimeout(() => {
-        el.style.opacity = 1;
-        el.style.height = '2.5em';
-      }, delay);
-    },
-    leave(el, done) {
-      const delay = el.dataset.index * 30;
-      setTimeout(() => {
-        el.style.opacity = 0;
-        el.style.height = 0;
-        setTimeout(() => el.remove(), 50);
-      }, delay);
-    },
-  },
-});
-
-Vue.component('catalog-filters', {
+const catalogFilters = {
   template: `
     <div class="catalog__filters">
       <div class="filter">
@@ -201,9 +66,9 @@ Vue.component('catalog-filters', {
       </div>
     </div>
   `,
-});
+};
 
-Vue.component('catalog-sort', {
+const catalogSort = {
   template: `
     <div class="catalog__sort">
       <div>
@@ -234,9 +99,9 @@ Vue.component('catalog-sort', {
       </div>
     </div>
   `,
-});
+};
 
-Vue.component('catalog-pagination', {
+const catalogPagination = {
   template: `
     <div class="pagination__wrap">
       <ul class="pagination">
@@ -266,4 +131,151 @@ Vue.component('catalog-pagination', {
          @click.prevent="$parent.$refs.products.getAllProducts()">View All</a>
     </div>
   `,
-});
+};
+
+const catalogMenuBlock = {
+  props: ['block'],
+  data() {
+    return {
+      isVisible: false,
+    };
+  },
+  template: `
+    <div>
+      <h3 class="catalog-menu__title"
+          @click="showList"
+       >{{ getTitleItem(block) }}</h3>
+       <transition-group
+          tag="ul"
+          class="catalog-menu__list"
+          :class="{'catalog-menu__list_active': isVisible}"
+          :css="false"
+          @before-enter="beforeEnter"
+          @enter="enter"
+          @leave="leave"
+        >  
+          <li class="catalog-menu__item"
+              v-for="(item, j) in getListItems()"
+              :key="item"
+              :data-index="j">
+            <a href="#" class="catalog-menu__link">{{ item }}</a>
+          </li>
+      </transition-group>  
+    </div>
+  `,
+  methods: {
+    getListItems() {
+      return this.isVisible ? Object.values(this.block)[0] : [];
+    },
+    getTitleItem(obj) {
+      let title = Object.keys(obj)[0];
+      return title.charAt(0).toUpperCase() + title.slice(1);
+    },
+    showList() {
+      if (this.isVisible) {
+        this.isVisible = false;
+      } else {
+        for (const item of this.$parent.$refs.menuBlock) {
+          item.isVisible = false;
+        }
+        this.isVisible = true;
+      }
+    },
+    beforeEnter(el) {
+      el.style.opacity = 0;
+      el.style.height = 0;
+    },
+    enter(el, done) {
+      const delay = el.dataset.index * 30;
+      setTimeout(() => {
+        el.style.opacity = 1;
+        el.style.height = '2.5em';
+      }, delay);
+    },
+    leave(el, done) {
+      const delay = el.dataset.index * 30;
+      setTimeout(() => {
+        el.style.opacity = 0;
+        el.style.height = 0;
+        setTimeout(() => el.remove(), 50);
+      }, delay);
+    },
+  },
+};
+
+const catalogMenu = {
+  props: ['catalogUrl'],
+  data() {
+    return {
+      url: this.catalogUrl,
+      menuBlocks: [],
+    };
+  },
+  components: {
+    "catalog-menu-block": catalogMenuBlock,
+  },
+  template: `
+    <div class="catalog-menu">
+      <div class="catalog-menu__block"
+           v-for="(block, i) in menuBlocks"
+           :key="i">
+        <catalog-menu-block :block="block" ref="menuBlock"></catalog-menu-block>
+      </div>
+    </div>
+  `,
+  methods: {
+    splitToItems(data) {
+      const items = {
+        category: {},
+        brand: {},
+        designer: {},
+      };
+
+      for (const item of data) {
+        if (item.category) items.category[item.category] = '';
+        if (item.brand) items.brand[item.brand] = '';
+        if (item.designer) items.designer[item.designer] = '';
+      }
+
+      for (let key in items) {
+        const item = {};
+        item[key] = Object.keys(items[key]);
+        this.menuBlocks.push(item);
+      }
+    },
+  },
+  mounted() {
+    this.$root.getJSON(`${this.url}`)
+      .then(data => {
+        this.splitToItems(data);
+      });
+  },
+};
+
+const catalog = {
+  data() {
+    return {
+      catalogUrl: '/api/catalog',
+    };
+  },
+  components: {
+    "catalog-menu": catalogMenu,
+    "catalog-filters": catalogFilters,
+    "catalog-sort": catalogSort,
+    "products": products,
+    "catalog-pagination": catalogPagination,
+  },
+  template: `
+    <div class="container catalog__container">
+      <catalog-menu :catalog-url="catalogUrl"></catalog-menu>
+      <div class="catalog">
+        <catalog-filters></catalog-filters>
+        <catalog-sort></catalog-sort>
+        <products :catalog-url="catalogUrl" ref="products" class-name="catalog"></products>
+        <catalog-pagination></catalog-pagination>
+      </div>
+    </div>
+  `,
+};
+
+export default catalog

@@ -1,5 +1,18 @@
-const app = new Vue({
+import {cart, cartMain} from './CartComponent.js';
+import catalog from './CatalogComponent.js';
+import {products, productSingle} from './ProductsComponent.js';
+import slider from './SliderComponent.js';
+
+const app = {
   el: '#app',
+  components: {
+    cart,
+    "cart-main": cartMain,
+    catalog,
+    products,
+    "product-single": productSingle,
+    slider,
+  },
   methods: {
     getJSON(src) {
       return fetch(src)
@@ -36,4 +49,6 @@ const app = new Vue({
         .catch(err => console.log(err));
     },
   },
-});
+};
+
+export default app;
