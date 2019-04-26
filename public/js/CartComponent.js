@@ -36,7 +36,7 @@ Vue.component('cart', {
   `,
   methods: {
     getTotalSum() {
-      return this.itemsList.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      return this.itemsList.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2);
     },
     addProductItem(product) {
       const item = this.itemsList.find(el => el.id_product === product.id_product);
@@ -222,7 +222,7 @@ Vue.component('cartTableItem', {
       </td>
       <td class="product-table__cell product-table__text_uppercase product-table__row_border">FREE</td>
       <td class="product-table__cell product-table__row_border">
-        <span class="dollar">{{ item.price * item.quantity }}</span>
+        <span class="dollar">{{ subtotal(item.price, item.quantity) }}</span>
       </td>
       <td class="product-table__cell product-table__row_border">
         <a href="#" class="cart__item-remove" @click.prevent="$root.$refs.cart.removeProduct(item)"></a>
@@ -243,6 +243,9 @@ Vue.component('cartTableItem', {
       } else {
         event.target.value = this.item.quantity;
       }
-    }
+    },
+    subtotal(price, qty) {
+      return (price * qty).toFixed(2);
+    },
   },
 });

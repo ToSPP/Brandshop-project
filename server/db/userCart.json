@@ -9,5 +9,16 @@
         "img": "product_6.jpg",
         "price": 30,
         "rating": 5
+    },
+    {
+        "quantity": 2,
+        "id_product": 7,
+        "product_name": "Fendi Jersey Jacket",
+        "category": "Polos",
+        "brand": "Zara",
+        "designer": "Tommy Hilfiger",
+        "img": "product_7.jpg",
+        "price": 550,
+        "rating": 5
     }
 ]
