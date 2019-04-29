@@ -26,7 +26,7 @@
  *    12.1. Socials
  *  13. Breadcrumbs
  *  14. Catalog
- *    14.1. Sidebar
+ *    14.1. Catalog-Menu
  *    14.2. Filters
  *    14.3. Pagination
  *  15. Slider
@@ -190,7 +190,7 @@ body {
 /* 4.2. Search
  * ========================================================================== */
 .search-form {
-  display: block;
+  display: flex;
   margin: 0; }
 
 .header__search-form {
@@ -203,8 +203,8 @@ body {
 .input__search {
   width: 280px;
   height: 38px;
-  margin-left: -4px;
-  margin-right: -4px;
+  margin-left: -2px;
+  margin-right: -1px;
   border: 1px solid #e6e6e6;
   padding-left: 16px;
   padding-right: 16px;
@@ -217,13 +217,6 @@ body {
  * ========================================================================== */
 .cart {
   position: relative; }
-
-.cart__link {
-  text-decoration: none; }
-
-.cart__drop:hover > .cart__block {
-  visibility: visible;
-  opacity: 1; }
 
 .cart__pos {
   margin-right: 26px; }
@@ -256,6 +249,20 @@ body {
 .cart__qty_pos {
   top: -6px;
   right: -8px; }
+
+.cart__block {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  border: 1px solid #e8e8e8;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 1px 1px 3px #ddd;
+  z-index: 100;
+  text-align: left; }
 
 .cart__sub-menu {
   top: 36px;
@@ -290,7 +297,9 @@ body {
   flex: 1 1 0%; }
 
 .cart__list {
-  margin: 0; }
+  margin: 0;
+  padding: 0;
+  list-style-type: none; }
 
 .cart__item {
   display: -webkit-box;
@@ -311,6 +320,7 @@ body {
   color: #222222;
   font-size: 12px;
   font-weight: 700;
+  line-height: 1.2em;
   text-transform: uppercase;
   text-decoration: none; }
   .cart__item-title:hover {
@@ -350,6 +360,14 @@ body {
   font-weight: 700;
   text-transform: uppercase; }
 
+.cart__empty {
+  padding-top: 18px;
+  padding-bottom: 15px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase; }
+
 /* 5. Navigation
  * ========================================================================== */
 .navigation {
@@ -382,7 +400,7 @@ body {
 
 .top-menu__item {
   position: relative; }
-  .top-menu__item:hover > .sub-menu, .top-menu__item:hover > .cart__block {
+  .top-menu__item:hover > .sub-menu {
     visibility: visible;
     opacity: 1; }
 
@@ -417,7 +435,7 @@ body {
 
 /* 5.2. Sub-menu
  * ========================================================================== */
-.sub-menu, .cart__block {
+.sub-menu {
   display: -webkit-box;
   display: -moz-box;
   display: -webkit-flex;
@@ -480,7 +498,7 @@ body {
   padding-top: 10px;
   padding-bottom: 6px; }
 
-.sub-menu__ul, .cart__list {
+.sub-menu__ul {
   margin: 0 0 20px 20px;
   padding: 0;
   list-style-type: none; }
@@ -1238,68 +1256,64 @@ body {
   justify-content: space-between;
   padding-top: 10px; }
 
-/* 14.1. Sidebar
+/* 14.1. Catalog-Menu
  * ========================================================================== */
-.sidebar {
+.catalog-menu {
   width: 22.9%;
   padding-right: 15px; }
 
-.sidebar__block {
+.catalog-menu__block {
   margin-bottom: 18px; }
 
-.sidebar__h3 {
+.catalog-menu__title {
   cursor: pointer;
   position: relative;
   margin: 0;
   padding: 12px 11px 15px;
   border-bottom: 1px solid #ebebeb;
-  border-left: 5px solid #ef5b70;
+  border-left: 5px solid #f16d7f;
   font-weight: 700;
   text-transform: uppercase;
   color: #6f6e6e; }
-  .sidebar__h3::after {
+  .catalog-menu__title:hover {
+    color: #f16d7f; }
+  .catalog-menu__title::after {
     position: absolute;
     right: 6px;
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     content: "";
     transition: transform 0.2s linear; }
-  .sidebar__h3:hover {
-    color: #ef5b70; }
-    .sidebar__h3:hover + .sidebar__list {
-      display: block; }
-  .sidebar__h3:hover::after {
+  .catalog-menu__title:hover::after {
     transform: rotate(180deg);
     transition: transform 0.2s linear; }
 
-.sidebar__list {
-  display: none;
+.catalog-menu__list {
   margin-top: 0;
   margin-bottom: 20px;
-  padding-top: 10px;
   padding-left: 17px;
   list-style-type: none; }
-  .sidebar__list:hover {
-    display: block; }
 
-.sidebar__item {
-  line-height: 2.5em; }
+.catalog-menu__list_active {
+  padding-top: 10px; }
 
-.sidebar__link {
+.catalog-menu__item {
+  line-height: 2.5em;
+  transition: all 150ms; }
+
+.catalog-menu__link {
   display: block;
   text-decoration: none;
   color: #6f6e6e; }
-  .sidebar__link:hover {
+  .catalog-menu__link:hover {
     color: #ef5b70; }
 
 /* 14.2. Filters
  * ========================================================================== */
 .catalog__filters {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 263px);
+  grid-template-rows: 1fr;
   -webkit-box-pack: justify;
   -moz-box-pack: justify;
   -ms-flex-pack: justify;
@@ -1307,8 +1321,17 @@ body {
   justify-content: space-between; }
 
 .filter {
-  max-width: 31%;
-  flex: 0 0 31%; }
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-content: space-between;
+  -ms-flex-line-pack: space-between;
+  align-content: space-between;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
 
 .filter__h3 {
   color: #6f6e6e;
@@ -1393,46 +1416,36 @@ body {
   content: "";
   line-height: 12px; }
 
-.price_range {
-  -webkit-appearance: none;
+.ui-slider {
   width: 100%;
-  background: transparent; }
-  .price_range:focus {
-    outline: none; }
-  .price_range::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 14px;
-    height: 14px;
-    border-radius: 7px;
-    background-color: #f16d7f;
-    margin-top: -4px; }
-  .price_range::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 6px;
-    cursor: pointer;
-    background: #f0f0f0; }
-  .price_range::-moz-range-thumb {
-    width: 14px;
-    height: 14px;
-    border-radius: 7px;
-    background-color: #f16d7f; }
-  .price_range::-moz-range-track {
-    width: 100%;
-    height: 6px;
-    cursor: pointer;
-    background: #f0f0f0; }
-  .price_range::-ms-thumb {
-    width: 14px;
-    height: 14px;
-    border-radius: 7px;
-    background-color: #f16d7f; }
-  .price_range::-ms-track {
-    width: 100%;
-    cursor: pointer;
-    background: f0f0f0; }
+  height: 6px !important;
+  margin-bottom: 15px !important;
+  background-color: #f0f0f0 !important;
+  border: none !important; }
 
-output[name=priceShow] {
-  line-height: 2.5em;
+.ui-slider-range {
+  background-color: #f16d7f !important; }
+
+.ui-slider-handle {
+  width: 14px !important;
+  height: 14px !important;
+  border: 1px solid #f16d7f !important;
+  border-radius: 7px !important;
+  background-color: #f16d7f !important;
+  outline: none; }
+
+.filter-range-amounts {
+  width: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
   color: #6f6e6e; }
 
 .catalog__sort {
@@ -2128,7 +2141,7 @@ output[name=priceShow] {
 
 /* 20. Buttons
  * ========================================================================== */
-.btn {
+.btn, .cart__main-btn {
   border: none;
   cursor: pointer;
   outline: none;
@@ -2192,7 +2205,7 @@ output[name=priceShow] {
   background-image: linear-gradient(to bottom, #f9f9f9 0%, #f5f5f5 100%);
   font-weight: 300;
   cursor: pointer; }
-  .search-form__btn-drop:hover > .sub-menu, .search-form__btn-drop:hover > .cart__block {
+  .search-form__btn-drop:hover > .sub-menu {
     visibility: visible;
     opacity: 1; }
 
@@ -2208,6 +2221,15 @@ output[name=priceShow] {
 
 /* 20.3. Cart Menu
  * ========================================================================== */
+.cart__main-btn {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background-color: transparent;
+  transition: transform 0.3s; }
+  .cart__main-btn:hover {
+    transform: translateY(-3px); }
+
 .cart__btn {
   display: block;
   width: 225px;
@@ -2220,7 +2242,7 @@ output[name=priceShow] {
   font-weight: 700;
   color: #4a4a4a;
   text-transform: uppercase;
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #eaeaea; }
   .cart__btn:hover {
     color: #f16d7f;
@@ -2302,6 +2324,7 @@ output[name=priceShow] {
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
+  text-decoration: none;
   padding: 19px 39px; }
 
 .btn__shopping-cart_small {

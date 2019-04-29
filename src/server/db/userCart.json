@@ -1,0 +1,13 @@
+[
+    {
+        "quantity": 1,
+        "id_product": 6,
+        "product_name": "Superdry Graphic Top",
+        "category": "Pants",
+        "brand": "Giorgio Armani",
+        "designer": "Carolina Herrera",
+        "img": "product_6.jpg",
+        "price": 30,
+        "rating": 5
+    }
+]
