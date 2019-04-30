@@ -1,15 +1,17 @@
-import {cart, cartMain} from './CartComponent.js';
+import products from './ProductsComponent.js';
+import cartMain from './CartMainComponent.js';
+import cart from './CartComponent.js';
 import catalog from './CatalogComponent.js';
-import {products, productSingle} from './ProductsComponent.js';
+import productSingle from './ProductSingleComponent.js';
 import slider from './SliderComponent.js';
 
 const app = {
   el: '#app',
   components: {
-    cart,
-    "cart-main": cartMain,
-    catalog,
     products,
+    "cart-main": cartMain,
+    cart,
+    catalog,
     "product-single": productSingle,
     slider,
   },

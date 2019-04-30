@@ -1,3 +1,5 @@
+import products from './ProductsComponent.js';
+
 const catalogFilters = {
   template: `
     <div class="catalog__filters">

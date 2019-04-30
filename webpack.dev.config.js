@@ -37,9 +37,10 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "src/public/[name].html",
-      filename: "[name].html",
+      template: "src/public/index.html",
+      filename: "index.html",
       excludeChunks: ['server'],
-    })
+      favicon: "src/public/favicon.ico",
+    }),
   ],
 };

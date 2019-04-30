@@ -4,7 +4,7 @@ const routerCart = require('./routerCart');
 const app = express();
 
 app.use(express.json());
-app.use('/', express.static('public'));
+app.use('/', express.static('dist/public'));
 app.use('/api/cart', routerCart);
 
 app.get('/api/catalog', (req, res) => {
