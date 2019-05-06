@@ -264,7 +264,7 @@ const catalog = {
     "catalog-menu": catalogMenu,
     "catalog-filters": catalogFilters,
     "catalog-sort": catalogSort,
-    "products": products,
+    products,
     "catalog-pagination": catalogPagination,
   },
   template: `

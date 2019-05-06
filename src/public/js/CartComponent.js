@@ -1,8 +1,12 @@
+import cart_Svg from '../img/cart.svg';
+import rating_4_5_Png from '../img/rating_4-5.png';
+
 const cartItem = {
   props: ['item'],
   data() {
     return {
       tempImg: 'https://placehold.it/72x85',
+      rating4_5Img: rating_4_5_Png,
     };
   },
   template: `
@@ -11,7 +15,7 @@ const cartItem = {
         <img :src="tempImg" :alt="item.product_name"></a>
       <div class="cart__item-desc">
         <a href="single.html" class="cart__item-title">{{ item.product_name }}</a>
-        <img src="img/rating_4-5.png" alt="rating_4-5_stars">
+        <img :src="rating4_5Img" alt="rating_4-5_stars">
         <p class="cart__item-total">
           <span class="cart__item-qty">{{ item.quantity }}</span> x
           <span class="dollar cart__item-sum">{{ item.price }}</span>
@@ -28,6 +32,7 @@ const cart = {
       cartUrl: '/api/cart',
       itemsList: [],
       isVisible: false,
+      cartImage_black: cart_Svg,
     };
   },
   components: {
@@ -36,7 +41,7 @@ const cart = {
   template: `
     <div class="cart cart__pos">
       <button type="button" class="cart__main-btn" @click="isVisible = !isVisible">
-        <img src="img/cart.svg" alt="Cart">
+        <img :src="cartImage_black" alt="Cart">
         <span v-if="itemsList.length" class="cart__qty cart__qty_pos">{{ itemsList.length }}</span>
       </button>
       <div v-show="isVisible" class="cart__block cart__sub-menu">

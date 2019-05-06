@@ -1,21 +1,34 @@
+import cart_white_svg from '../img/cart_w.svg';
+import retweet_svg from '../img/retweet.svg';
+import like_svg from '../img/like.svg';
+import rating_4_png from '../img/rating_4.png';
+
 const productCard = {
   props: ['product', 'full'],
+  data() {
+    return {
+      cartImage_white: cart_white_svg,
+      retweetImg: retweet_svg,
+      likeImg: like_svg,
+      rating4Img: rating_4_png,
+    };
+  },
   template: `
     <div class="product">
       <a href="#" class="product__add" @click.prevent="$root.$refs.cart.addProductItem(product)">
-        <img src="img/cart_w.svg" class="cart_w" alt="cart">Add to Cart</a>
+        <img :src="cartImage_white" class="cart_w" alt="cart">Add to Cart</a>
       <a v-if="full" href="#" class="product__retweet">
-        <img src="img/retweet.svg" alt="retweet"></a>
+        <img :src="retweetImg" alt="retweet"></a>
       <a v-if="full" href="#" class="product__like">
-        <img src="img/like.svg" alt="like"></a>
+        <img :src="likeImg" alt="like"></a>
       <a href="single.html">
-        <img :src="'img/' + product.img" class="product__img" :alt="product.product_name"></a>
+        <img :src="'img/products/' + product.img" class="product__img" :alt="product.product_name"></a>
       <div class="product__desc">
         <a href="single.html" class="product__desc-link">
           <h3 class="product__desc-h3">{{ product.product_name }}</h3></a>
         <div class="product__desc-row">
           <span class="product__price dollar color-pink">{{ product.price }}</span>
-          <img src="img/rating_4.png" class="product__rating" alt="rating_4_stars">
+          <img :src="rating4Img" class="product__rating" alt="rating_4_stars">
         </div>
       </div>
     </div>
